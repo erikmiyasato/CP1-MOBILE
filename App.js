@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   const [nome, setNome] = useState('');
@@ -23,8 +24,10 @@ export default function App() {
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.scroll}>
 
-        {/* Ícone de pessoa no topo */}
-        <Text style={styles.icone}>👤</Text>
+        {/* Ícone de perfil com círculo rosa */}
+        <View style={styles.iconContainer}>
+          <Ionicons name="person-circle" size={80} color="#e91e8c" />
+        </View>
 
         {/* Título rosa */}
         <Text style={styles.titulo}>FORMULÁRIO DE CADASTRO</Text>
@@ -87,15 +90,21 @@ export default function App() {
               <Text style={styles.valor}>{dadosEnviados.nome}</Text>
             </View>
 
+            <View style={styles.divisor} />
+
             <View style={styles.linha}>
               <Text style={styles.campo}>Curso:</Text>
               <Text style={styles.valor}>{dadosEnviados.curso}</Text>
             </View>
 
+            <View style={styles.divisor} />
+
             <View style={styles.linha}>
               <Text style={styles.campo}>Disciplina:</Text>
               <Text style={styles.valor}>{dadosEnviados.disciplina}</Text>
             </View>
+
+            <View style={styles.divisor} />
 
             <View style={styles.linha}>
               <Text style={styles.campo}>Descrição:</Text>
@@ -120,12 +129,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  /* Topo */
-  icone: {
-    fontSize: 36,
+  /* Ícone de perfil */
+  iconContainer: {
     marginTop: 10,
     marginBottom: 8,
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    backgroundColor: '#2c2c2e',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#e91e8c',
   },
+
+  /* Título */
   titulo: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -133,6 +151,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 28,
+    marginTop: 12,
   },
 
   /* Formulário */
@@ -197,7 +216,7 @@ const styles = StyleSheet.create({
   },
   linha: {
     flexDirection: 'row',
-    marginBottom: 10,
+    paddingVertical: 8,
     flexWrap: 'wrap',
   },
   campo: {
@@ -210,5 +229,9 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     flex: 1,
+  },
+  divisor: {
+    height: 1,
+    backgroundColor: '#3a3a3c',
   },
 });
