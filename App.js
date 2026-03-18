@@ -24,12 +24,12 @@ export default function App() {
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.scroll}>
  
-        {/* Ícone de perfil com círculo rosa */}
+        {/* Ícone de perfil */}
         <View style={styles.iconContainer}>
           <Ionicons name="person-circle" size={80} color="#e91e8c" />
         </View>
  
-        {/* Título rosa */}
+        {/* Título */}
         <Text style={styles.titulo}>FORMULÁRIO DE CADASTRO</Text>
  
         {/* Formulário */}
@@ -73,7 +73,7 @@ export default function App() {
             numberOfLines={4}
           />
  
-          {/* Botão usando Button do React Native com cor rosa */}
+          {/* Botão usando Button do React Native  */}
           <View style={styles.botaoContainer}>
             <Button
               title="ENVIAR"
